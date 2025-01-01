@@ -1,0 +1,106 @@
+<!-- templates/myapp/patient_pdf.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Registration Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .field {
+            margin-bottom: 8px;
+        }
+        .label {
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+        }
+        .value {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Patient Registration Details</h1>
+        <p>Registration Date: {{ registration_date }}</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Basic Information</div>
+        <div class="field">
+            <span class="label">Full Name:</span>
+            <span class="value">{{ patient.title }} {{ patient.first_name }} {{ patient.middle_name }} {{ patient.last_name }}</span>
+        </div>
+        <div class="field">
+            <span class="label">Father's Name:</span>
+            <span class="value">{{ patient.father_name }}</span>
+        </div>
+        <div class="field">
+            <span class="label">Date of Birth:</span>
+            <span class="value">{{ patient.date_of_birth }}</span>
+        </div>
+        <div class="field">
+            <span class="label">Age:</span>
+            <span class="value">{{ patient.age }}</span>
+        </div>
+        <div class="field">
+            <span class="label">Gender:</span>
+            <span class="value">{{ patient.get_gender_display }}</span>
+        </div>
+        <div class="field">
+            <span class="label">Patient ID:</span>
+            <span class="value">{{ patient.patient_id }}</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Address Information</div>
+        <div class="field">
+            <span class="label">Street:</span>
+            <span class="value">{{ patient.street }}</span>
+        </div>
+        <div class="field">
+            <span class="label">City:</span>
+            <span class="value">{{ patient.city }}</span>
+        </div>
+        <div class="field">
+            <span class="label">Country:</span>
+            <span class="value">{{ patient.country }}</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Emergency Contact</div>
+        <div class="field">
+            <span class="label">Name:</span>
+            <span class="value">{{ emergency_contact.name }}</span>
+        </div>
+        <div class="field">
+            <span class="label">Relationship:</span>
+            <span class="value">{{ emergency_contact.relationship }}</span>
+        </div>
+        <div class="field">
+            <span class="label">Phone:</span>
+            <span class="value">{{ emergency_contact.phone }}</span>
+        </div>
+    </div>
+</body>
+</html>
